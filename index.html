@@ -76,6 +76,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+	
+	 .product-row.hidden-row {
+    display: none;
+  }
+  .product-row.visible {
+    display: flex; 
+  }
+	
+  .nav-link:not(.active) {
+    color: #2D9B9B !important;
+  }
+  
+  .nav-link.active {
+    color: #000 !important;
+  }
+  
+  .nav-link:not(.active):hover {
+    color: #1E7A7A !important; /* Slightly darker teal on hover */
+  }
+  
+  .nav-link:not(.active) .fas {
+    color: inherit; /* Makes icons match the teal text */
+  }
+	
         /* Performance optimized styles */
         :root {
             --pet-teal: #2dd4bf;
@@ -142,6 +166,129 @@
             margin-top: auto;
             padding-top: 1rem;
         }
+		
+		
+		/* FAQ Section - Optimized CSS */
+    .faq-section {
+        padding: 5rem 1rem;
+        background-color: #fff;
+        position: relative;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .section-header {
+        margin-bottom: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+    
+    .section-description {
+        font-size: 1.125rem;
+        color: #4a5568;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .faq-item {
+        margin-bottom: 1rem;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .faq-item:hover {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .faq-question {
+        width: 100%;
+        padding: 1.5rem;
+        text-align: left;
+        background: #f8fafc;
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        transition: all 0.3s ease;
+    }
+    
+    .faq-question:hover {
+        background: #edf2f7;
+    }
+    
+    .faq-question[aria-expanded="true"] {
+        background: #2D9B9B;
+        color: white;
+    }
+    
+    .faq-question[aria-expanded="true"] .faq-icon {
+        transform: rotate(180deg);
+        stroke: white;
+    }
+    
+    .faq-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background: white;
+    }
+    
+    .faq-answer[aria-hidden="false"] {
+        max-height: 500px; /* Adjust based on your content */
+    }
+    
+    .answer-content {
+        padding: 1.5rem;
+    }
+    
+    .answer-content p {
+        margin-bottom: 0;
+        color: #4a5568;
+        line-height: 1.6;
+    }
+    
+    .answer-content a {
+        color: #4299e1;
+        text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 2rem;
+        }
+        
+        .faq-question {
+            padding: 1.25rem;
+            font-size: 1rem;
+        }
+    }
+		
     </style>
 </head>
 <body class="antialiased">
@@ -202,7 +349,7 @@
                 </div>
           <div class="col-lg-6 critical-css" style="animation-delay: 0.3s;">
     <div class="position-relative">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Dog sitting happily with pet accessories" class="img-fluid rounded-lg shadow-lg w-full h-auto" loading="lazy" width="800" height="600">
+        <img loading="lazy" src="images\misc\FI1.avif" alt="Dog sitting happily with pet accessories" class="img-fluid rounded-lg shadow-lg w-full h-auto" loading="lazy" width="800" height="600">
         <div class="position-absolute bottom-0 start-0 bg-white p-3 rounded-lg shadow-sm ms-3 mb-3" style="max-width: 220px;">
             <p class="fw-bold mb-1">Expert-picked deals & gear</p>
             <div class="text-yellow-400 mb-1">
@@ -265,10 +412,10 @@
                 <div class="tab-pane fade show active" id="dog-products" role="tabpanel" aria-labelledby="dog-tab">
                     <div class="row g-4">
                         <!-- Dog Product 1 -->
-                        <div class="col-md-4 col-lg-3">
+                        <div class="col-md-4 col-lg-3 product-row visible">
                             <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                                 <div class="relative">
-                                    <img loading="lazy" src="https://m.media-amazon.com/images/I/71cS3UMbaUL._SX679_.jpg" alt="PetSafe Automatic Dog Feeder" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                    <img loading="lazy" src="images/dogs/DP1.jpg" alt="PUPPEE Wipe ME" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                     <div class="absolute top-2 right-2 bg-pet-teal text-white text-xs px-2 py-1 rounded-full">BEST SELLER</div>
                                 </div>
                                 <div class="p-4 flex flex-col flex-grow">
@@ -289,17 +436,17 @@
                                     </div>
                                     <div class="product-footer">
                                         <p class="fw-bold text-pet-teal mb-2">From ₹109 <span class="text-gray-400 text-sm line-through">₹249</span></p>
-                                        <a href="https://amzn.to/41XqMzm" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                        <a href="https://amzn.to/41XqMzm" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2" onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Dog Product 2 -->
-                        <div class="col-md-4 col-lg-3">
+                        <div class="col-md-4 col-lg-3 product-row visible">
                             <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                                 <div class="relative">
-                                    <img loading="lazy" src="https://m.media-amazon.com/images/I/615ucSVq4TL._SX679_.jpg" alt="Tractive GPS Dog Tracker" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                    <img loading="lazy" src="images/dogs/DP2.jpg" alt="Dog Feeder" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                     <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">33% OFF</div>
                                 </div>
                                 <div class="p-4 flex flex-col flex-grow">
@@ -320,18 +467,18 @@
                                     </div>
                                     <div class="product-footer">
                                         <p class="fw-bold text-pet-teal mb-2">From ₹4,000 <span class="text-gray-400 text-sm line-through">₹5,999</span></p>
-                                        <a href="https://amzn.to/43BfW3j" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                        <a href="https://amzn.to/43BfW3j" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
 						  <!-- Dog Product 3 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row visible">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/61pxxTCw1VL._SX679_.jpg" alt="Tractive GPS Dog Tracker" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
-                                <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">47% OFF OFF</div>
+                                <img loading="lazy" src="images/dogs/DP3.jpg" alt="Qpets® Automatic Pet Feeder" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">47% OFF</div>
                             </div>
                            <div class="p-4 flex flex-col flex-grow">
             <!-- Product content with fixed height -->
@@ -349,17 +496,17 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹3,199 <span class="text-gray-400 text-sm text-decoration-line-through">₹6,024</span></p>
-                                    <a href="https://amzn.to/42irZjw" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/42irZjw" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 					
 					  <!-- Dog Product 4 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row visible">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/71FNR8woN+L._SX679_.jpg" alt="Tractive GPS Dog Tracker" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <img loading="lazy" src="images/dogs/DP4.jpg" alt="Beaphar Toothpaste for Dogs" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                 <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full"></div>
                             </div>
                               <div class="p-4 flex flex-col flex-grow">
@@ -378,18 +525,18 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹675 <span class="text-gray-400 text-sm text-decoration-line-through"></span></p>
-                                    <a href="https://amzn.to/3XLF8Aj" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/3XLF8Aj" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 					
 						  <!-- Dog Product 5 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row hidden-row">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/61lWawtSJ7L._SX679_.jpg" alt="Tractive GPS Dog Tracker" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
-                                <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full"></div>
+                                <img loading="lazy" src="images/dogs/DP5.jpg" alt="Moe Puppy Xtra Nourish Shampoo" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">8% OFF</div>
                             </div>
                          <div class="p-4 flex flex-col flex-grow">
             <!-- Product content with fixed height -->
@@ -407,17 +554,17 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹643 <span class="text-gray-400 text-sm text-decoration-line-through">₹699 </span></p>
-                                    <a href="https://amzn.to/3XLF8Aj" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/4i0p6d2" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 					
 						  <!-- Dog Product 6 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row hidden-row">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/71yltoQt4lL._SY879_.jpg" alt="Tractive GPS Dog Tracker" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <img loading="lazy" src="images/dogs/DP6.jpg" alt="Good Paws Paw Cleaner" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                 <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">Limited Time Deal</div>
                             </div>
                               <div class="p-4 flex flex-col flex-grow">
@@ -436,17 +583,17 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹299 <span class="text-gray-400 text-sm text-decoration-line-through">₹350 </span></p>
-                                    <a href="https://amzn.to/3XKspxY" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/3XKspxY" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 					
 								  <!-- Dog Product 7 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row hidden-row">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/51FQh5rCNyL._SX679_.jpg" alt="Tractive GPS Dog Tracker" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <img loading="lazy" src="images/dogs/DP7.jpg" alt="Pets Self Cleaning Slicker Brush" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                 <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">54% OFF</div>
                             </div>
                               <div class="p-4 flex flex-col flex-grow">
@@ -465,17 +612,17 @@
 </div>                               
 							   <div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹184 <span class="text-gray-400 text-sm text-decoration-line-through">₹399 </span></p>
-                                    <a href="https://amzn.to/44iwmO6" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/44iwmO6" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
 					  <!-- Dog Product 8 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row hidden-row">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/61l4shM4OBL._SX679_.jpg" alt="Tractive GPS Dog Tracker" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <img loading="lazy" src="images/dogs/DP8.jpg" alt="THYDRA Groomer's Moisturizing Shampoo" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                 <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">16% OFF</div>
                             </div>
                               <div class="p-4 flex flex-col flex-grow">
@@ -494,17 +641,17 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹1,386 <span class="text-gray-400 text-sm text-decoration-line-through">₹1,650 </span></p>
-                                    <a href="https://amzn.to/42xCgtq" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/42xCgtq" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 					
 					 <!-- Dog Product 9 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row hidden-row">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/61qd8oP9vkL._SX679_PIbundle-2,TopRight,0,0_AA679SH20_.jpg" alt="Tractive GPS Dog Tracker" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <img loading="lazy" src="images/dogs/DP9.jpg" alt="Tummy Dog Biscuits" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                 <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">12% OFF</div>
                             </div>
                               <div class="p-4 flex flex-col flex-grow">
@@ -523,17 +670,17 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹699 <span class="text-gray-400 text-sm text-decoration-line-through">₹798 </span></p>
-                                    <a href="https://amzn.to/4i2hB5s" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/4i2hB5s" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 					
 								 <!-- Dog Product 10 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row hidden-row">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/71uKpMJkj+L._SX679_.jpg" alt="Tractive GPS Dog Tracker" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <img loading="lazy" src="images/dogs/DP10.jpg" alt="Dog Chew Ball Toy" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                 <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">50% OFF</div>
                             </div>
                                <div class="p-4 flex flex-col flex-grow">
@@ -552,17 +699,17 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹299 <span class="text-gray-400 text-sm text-decoration-line-through">₹599 </span></p>
-                                    <a href="https://amzn.to/4lhSazy" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/4lhSazy" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 					
 					<!-- Dog Product 11 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row hidden-row">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/61th7vu+SCL._SX679_.jpg" alt="Tractive GPS Dog Tracker" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <img loading="lazy" src="images/dogs/DP11.jpg" alt="Rubber Spiked Ball Dog Chew Toy" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                 <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">3% OFF</div>
                             </div>
                               <div class="p-4 flex flex-col flex-grow">
@@ -581,17 +728,17 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹169 <span class="text-gray-400 text-sm text-decoration-line-through">₹175 </span></p>
-                                    <a href="https://amzn.to/42gRx0B" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/42gRx0B" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 					
 					<!-- Dog Product 12 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row hidden-row">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/615ar-CcbkL._SX679_.jpg" alt="Tractive GPS Dog Tracker" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <img loading="lazy" src="images/dogs/DP12.webp" alt="Polyester XXL Pet Bed with Cushion" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                 <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">55% OFF</div>
                             </div>
                                <div class="p-4 flex flex-col flex-grow">
@@ -610,7 +757,7 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹1,899 <span class="text-gray-400 text-sm text-decoration-line-through">₹4200 </span></p>
-                                    <a href="https://amzn.to/4ld7Wfj" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/4ld7Wfj" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
@@ -620,19 +767,21 @@
                     <!-- Add more dog products as needed -->
                         
                     </div>
-                    <div class="text-center mt-5">
-                        <a href="#all-dog-products" class="btn bg-white text-pet-teal border border-pet-teal hover:bg-gray-50 px-5 py-2">View All Dog Products →</a>
-                    </div>
+                  <div class="text-center mt-5">
+  <button id="view-all-dog-btn" class="btn bg-white text-pet-teal border border-pet-teal hover:bg-gray-50 px-5 py-2">
+    View All Dog Products →
+  </button>
+</div>
                 </div>
                 
                 <!-- Cat Products -->
                 <div class="tab-pane fade" id="cat-products" role="tabpanel" aria-labelledby="cat-tab">
                     <div class="row g-4">
                         <!-- Cat Product 1 -->
-                        <div class="col-md-4 col-lg-3">
+                        <div class="col-md-4 col-lg-3 product-row visible">
                             <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                                 <div class="relative">
-                                    <img loading="lazy" src="https://m.media-amazon.com/images/I/51xvp3-ui6L._SX679_.jpg" alt="Pet Water Fountain for Cats" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                    <img loading="lazy" src="images/cats/CP1.webp" alt="Pet Water Fountain for Cats" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                     <div class="absolute top-2 right-2 bg-pet-teal text-white text-xs px-2 py-1 rounded-full">BEST SELLER</div>
                                 </div>
                                 <div class="p-4 flex flex-col flex-grow">
@@ -653,17 +802,17 @@
                                     </div>
                                     <div class="product-footer">
                                         <p class="fw-bold text-pet-teal mb-2">From ₹1,426 <span class="text-gray-400 text-sm line-through">₹2,526</span></p>
-                                        <a href="https://amzn.to/3XN40rv" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                        <a href="https://amzn.to/3XN40rv" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         					     <!-- Cat Product 2 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row visible">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/61+5VH-l7VL._SX679_.jpg" alt="Pet Water Fountain for Cats" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <img loading="lazy" src="images/cats/CP2.jpg" alt="Pet Water Fountain for Cats" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                 <div class="absolute top-2 right-2 bg-pet-teal text-white text-xs px-2 py-1 rounded-full">68% OFF</div>
                             </div>
                               <div class="p-4 flex flex-col flex-grow">
@@ -682,17 +831,17 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹3,715 <span class="text-gray-400 text-sm text-decoration-line-through">₹11,596</span></p>
-                                    <a href="https://amzn.to/4i5atVL" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/4i5atVL" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
 					     <!-- Cat Product 3 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row visible">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/71SNfuJggJL._SX679_.jpg" alt="Pet Water Fountain for Cats" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <img loading="lazy" src="images/cats/CP3.jpg" alt="Petkin Thick Pet Wipes" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                 <div class="absolute top-2 right-2 bg-pet-teal text-white text-xs px-2 py-1 rounded-full">5% OFF</div>
                             </div>
                               <div class="p-4 flex flex-col flex-grow">
@@ -711,17 +860,17 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹943 <span class="text-gray-400 text-sm text-decoration-line-through">₹995</span></p>
-                                    <a href="https://amzn.to/4jicL4T" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/4jicL4T" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 					
 						     <!-- Cat Product 4 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row visible">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/81uopDUjT8L._SY879_.jpg" alt="Pet Water Fountain for Cats" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <img loading="lazy" src="images/cats/CP4.jpg" alt="Ever Clean Cat Litter" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                 <div class="absolute top-2 right-2 bg-pet-teal text-white text-xs px-2 py-1 rounded-full">76% OFF</div>
                             </div>
                               <div class="p-4 flex flex-col flex-grow">
@@ -740,17 +889,17 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹945 <span class="text-gray-400 text-sm text-decoration-line-through">₹4,000</span></p>
-                                    <a href="https://amzn.to/3R2Tzwc" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/3R2Tzwc" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 					
                     <!-- Cat Product 5 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row hidden-row">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/61x0MOyBV4L._SX679_.jpg" alt="Cat Scratching Post" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <img loading="lazy" src="images/cats/CP5.jpg" alt="PetCrux Eco Clump Cat Litter" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                 <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">33% OFF</div>
                             </div>
                              <div class="p-4 flex flex-col flex-grow">
@@ -769,7 +918,7 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹1,198 <span class="text-gray-400 text-sm text-decoration-line-through">₹1,800</span></p>
-                                    <a href="https://amzn.to/3FWts7I" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/3FWts7I" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
@@ -777,10 +926,10 @@
 					
 						
                     <!-- Cat Product 6 -->
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-4 col-lg-3 product-row hidden-row">
                         <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                             <div class="relative">
-                                <img loading="lazy" src="https://m.media-amazon.com/images/I/51Db+BT9n9L._SX679_.jpg" alt="Cat Scratching Post" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                <img loading="lazy" src="images/cats/CP6.webp" alt="Cat Tree Scracther" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                 <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">54% OFF</div>
                             </div>
                              <div class="p-4 flex flex-col flex-grow">
@@ -799,17 +948,17 @@
                                 </div>
 								<div class="mt-auto">
                                     <p class="fw-bold text-pet-teal mb-2">From ₹649 <span class="text-gray-400 text-sm text-decoration-line-through">₹1,399</span></p>
-                                    <a href="https://amzn.to/4i4TdAd" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                    <a href="https://amzn.to/4i4TdAd" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 					
 					     <!-- Cat Product 7 -->
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-lg-3 product-row hidden-row">
             <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                 <div class="relative">
-                    <img loading="lazy" src="https://m.media-amazon.com/images/I/81LxNWHelvL._SX679_.jpg" alt="Travel Pet Carrier for Dogs & Cats" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                    <img loading="lazy" src="images/cats/CP7.webp" alt="Travel Pet Carrier for Dogs & Cats" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                     <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">72% OFF</div>
                 </div>
                  <div class="p-4 flex flex-col flex-grow">
@@ -828,17 +977,17 @@
                     </div>
 					<div class="mt-auto">
                         <p class="fw-bold text-pet-teal mb-2">From ₹1,197 <span class="text-gray-400 text-sm text-decoration-line-through">₹4,200</span></p>
-                        <a href="https://amzn.to/4jiqkl2" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                        <a href="https://amzn.to/4jiqkl2" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                     </div>
                 </div>
             </div>
         </div>
 		
 					     <!-- Cat Product 8 -->
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-lg-3 product-row hidden-row">
             <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                 <div class="relative">
-                    <img loading="lazy" src="https://m.media-amazon.com/images/I/61M45raAY5S._SX679_.jpg" alt="Travel Pet Carrier for Dogs & Cats" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                    <img loading="lazy" src="images/cats/CP8.webp" alt="REHTRAD Pack of 13 Cat Toys" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                     <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">63% OFF</div>
                 </div>
                <div class="p-4 flex flex-col flex-grow">
@@ -857,17 +1006,17 @@
                     </div>
 					<div class="mt-auto">
                         <p class="fw-bold text-pet-teal mb-2">From ₹599 <span class="text-gray-400 text-sm text-decoration-line-through">₹1,599</span></p>
-                        <a href="https://amzn.to/3FVGVNa" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                        <a href="https://amzn.to/3FVGVNa" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                     </div>
                 </div>
             </div>
         </div>
 		
 						     <!-- Cat Product 9 -->
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-lg-3 product-row hidden-row">
             <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                 <div class="relative">
-                    <img loading="lazy" src="https://m.media-amazon.com/images/I/51BO3nIzKdL._SX679_.jpg" alt="Travel Pet Carrier for Dogs & Cats" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                    <img loading="lazy" src="images/cats/CP9.jpg" alt="Qpets® Cat Laser Pointer Toy" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                     <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">38% OFF</div>
                 </div>
                    <div class="p-4 flex flex-col flex-grow">
@@ -886,19 +1035,17 @@
                     </div>
 					<div class="mt-auto">
                         <p class="fw-bold text-pet-teal mb-2">From ₹499 <span class="text-gray-400 text-sm text-decoration-line-through">₹809</span></p>
-                        <a href="https://amzn.to/4i4bcXk" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                        <a href="https://amzn.to/4i4bcXk" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                     </div>
                 </div>
             </div>
         </div>
 		
-		
-		
 						     <!-- Cat Product 10 -->
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-lg-3 product-row hidden-row">
             <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                 <div class="relative">
-                    <img loading="lazy" src="https://m.media-amazon.com/images/I/61lv9WzCGhL._SX679_.jpg" alt="Travel Pet Carrier for Dogs & Cats" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                    <img loading="lazy" src="images/cats/CP10.jpg" alt="Qpets® Dog & Cat Paws Hair Trimmer" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                     <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">52% OFF</div>
                 </div>
                    <div class="p-4 flex flex-col flex-grow">
@@ -917,17 +1064,17 @@
                     </div>
 					<div class="mt-auto">
                         <p class="fw-bold text-pet-teal mb-2">From ₹789 <span class="text-gray-400 text-sm text-decoration-line-through">₹1,649</span></p>
-                        <a href="https://amzn.to/4cjVBBV" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                        <a href="https://amzn.to/4cjVBBV" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                     </div>
                 </div>
             </div>
         </div>
 		
 						     <!-- Cat Product 11 -->
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-lg-3 product-row hidden-row">
             <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                 <div class="relative">
-                    <img loading="lazy" src="https://m.media-amazon.com/images/I/91mqPXJY2OL._SY879_.jpg" alt="Travel Pet Carrier for Dogs & Cats" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                    <img loading="lazy" src="images/cats/CP11.jpg" alt="Cat Activity Tree with Scratching Posts" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                     <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">60% OFF</div>
                 </div>
                    <div class="p-4 flex flex-col flex-grow">
@@ -946,7 +1093,7 @@
                     </div>
 					<div class="mt-auto">
                         <p class="fw-bold text-pet-teal mb-2">From ₹1,199 <span class="text-gray-400 text-sm text-decoration-line-through">₹3,000</span></p>
-                        <a href="https://amzn.to/4li3XxZ" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                        <a href="https://amzn.to/4li3XxZ" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                     </div>
                 </div>
             </div>
@@ -956,9 +1103,11 @@
                     <!-- Add more cat products as needed -->
                         
                     </div>
-                    <div class="text-center mt-5">
-                        <a href="#all-cat-products" class="btn bg-white text-pet-teal border border-pet-teal hover:bg-gray-50 px-5 py-2">View All Cat Products →</a>
-                    </div>
+           <div class="text-center mt-5">
+  <button id="view-all-cat-btn" class="btn bg-white text-pet-teal border border-pet-teal hover:bg-gray-50 px-5 py-2">
+    View All Cat Products →
+  </button>
+</div>
                 </div>
                 
                 <!-- Other Pets -->
@@ -968,7 +1117,7 @@
                         <div class="col-md-4 col-lg-3">
                             <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                                 <div class="relative">
-                                    <img loading="lazy" src="https://m.media-amazon.com/images/I/61rjQOpX+jL._SX679_.jpg" alt="Small Animal Cage" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                                    <img loading="lazy" src="images/other/OP1.jpg" alt="Portable Airline Pet Carrier" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                                     <div class="absolute top-2 right-2 bg-pet-teal text-white text-xs px-2 py-1 rounded-full">BEST SELLER</div>
                                 </div>
                                 <div class="p-4 flex flex-col flex-grow">
@@ -989,7 +1138,7 @@
                                     </div>
                                     <div class="product-footer">
                                         <p class="fw-bold text-pet-teal mb-2">From ₹1,499 <span class="text-gray-400 text-sm line-through">₹2,800</span></p>
-                                        <a href="https://amzn.to/4jnkbnQ" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                        <a href="https://amzn.to/4jnkbnQ" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                     </div>
                                 </div>
                             </div>
@@ -998,9 +1147,11 @@
                         <!-- Continue with other pet products -->
                         
                     </div>
-                    <div class="text-center mt-5">
-                        <a href="#all-other-products" class="btn bg-white text-pet-teal border border-pet-teal hover:bg-gray-50 px-5 py-2">View All Other Pet Products →</a>
-                    </div>
+                     <div class="text-center mt-5">
+  <button id="view-all-other-btn" class="btn bg-white text-pet-teal border border-pet-teal hover:bg-gray-50 px-5 py-2">
+    View All Other Products →
+  </button>
+</div>
                 </div>
             </div>
         </div>
@@ -1015,10 +1166,10 @@
             </div>
             <div class="row g-4">
                 <!-- Product 1 -->
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-lg-3 product-row visible">
             <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                 <div class="relative">
-                    <img loading="lazy" src="https://m.media-amazon.com/images/I/717WiuxL2XL._SY879_.jpg" alt="TPurepet Chicken & Vegetable Adult Dry Dog Food" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                    <img loading="lazy" src="images/topproduct/TP1.jpg" alt="Purepet Chicken & Vegetable Adult Dry Dog Food" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                     <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">15% OFF</div>
                 </div>
                    <div class="p-4 flex flex-col flex-grow">
@@ -1040,16 +1191,16 @@
 							</div>
                     <div class="mt-auto">
                         <p class="fw-bold text-pet-teal mb-2">From ₹2,281 <span class="text-gray-400 text-sm text-decoration-line-through">₹2,699</span></p>
-                        <a href="https://amzn.to/4hUOvVr" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                        <a href="https://amzn.to/4hUOvVr" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                     </div>
                 </div>
             </div>
         </div>
 		 <!-- Product 2-->
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-lg-3 product-row visible">
             <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                 <div class="relative">
-                    <img loading="lazy" src="https://m.media-amazon.com/images/I/61DYIuC6K2L._SX679_PIbundle-12,TopRight,0,0_AA679SH20_.jpg" alt="Temptations Cat Treat Chunks" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                    <img loading="lazy" src="images/topproduct/TP2.jpg" alt="Temptations Cat Treat Chunks" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                     <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">14% OFF</div>
                 </div>
                   <div class="p-4 flex flex-col flex-grow">
@@ -1071,18 +1222,17 @@
 							</div>
                     <div class="mt-auto">
                         <p class="fw-bold text-pet-teal mb-2">From ₹1,548 <span class="text-gray-400 text-sm text-decoration-line-through">₹1,800</span></p>
-                        <a href="https://amzn.to/3FSsJV0" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                        <a href="https://amzn.to/3FSsJV0" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                     </div>
                 </div>
             </div>
         </div>
 		
-		
                 <!-- Product 3 -->
-                <div class="col-md-3">
+                <div class="col-md-3 product-row visible">
                     <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                         <div class="relative">
-                            <img loading="lazy" src="https://m.media-amazon.com/images/I/71SIXEdGMjL._SX679_.jpg" alt="Tractive GPS Pet Tracker" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                            <img loading="lazy" src="images/topproduct/TP3.jpg" alt="Tractive GPS Pet Tracker" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                             <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">32% OFF</div>
                         </div>
                         <div class="p-4 flex flex-col flex-grow">
@@ -1104,7 +1254,7 @@
 						</div>
                             <div class="mt-auto">
                                 <p class="fw-bold text-pet-teal mb-2">From ₹5,241 <span class="text-gray-400 text-sm text-decoration-line-through">₹7,725</span></p>
-                                <a href="https://amzn.to/4i4rP5l" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                <a href="https://amzn.to/4i4rP5l" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                                 
                             </div>
                         </div>
@@ -1112,9 +1262,9 @@
                 </div>
                 
                 <!-- Product 4 -->
-                <div class="col-md-3">
+                <div class="col-md-3 product-row visible">
                     <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
-                        <img loading="lazy" src="https://m.media-amazon.com/images/I/71iVF47Q5sS._SX679_.jpg" alt="Furhaven Orthopedic Dog Bed" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                        <img loading="lazy" src="images/topproduct/TP4.jpg" alt="Dog Cot Bed" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                            <div class="p-4 flex flex-col flex-grow">
             <!-- Product content with fixed height -->
             <div class="flex-grow" style="min-height: 150px; max-height: 150px; overflow: hidden;">
@@ -1134,17 +1284,17 @@
 							</div>
                             <div class="mt-auto">
                                 <p class="fw-bold text-pet-teal mb-2">From ₹1,799</p>
-                                <a href="https://amzn.to/43H6oUy" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                <a href="https://amzn.to/43H6oUy" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Product 5 -->
-                <div class="col-md-3">
+                <div class="col-md-3 product-row hidden-row">
                     <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
                         <div class="relative">
-                            <img loading="lazy" src="https://m.media-amazon.com/images/I/710CD3iGbiL._SX679_.jpg" alt="Hertzko Pet Grooming Kit" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+                            <img loading="lazy" src="images/topproduct/TP5.jpg" alt="Soft pet kennel" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
                             <div class="absolute top-2 right-2 bg-pet-teal text-white text-xs px-2 py-1 rounded-full">Limited time Deal</div>
                         </div>
                    <div class="p-4 flex flex-col flex-grow">
@@ -1166,16 +1316,16 @@
 							</div>
                             <div class="mt-auto">
                                 <p class="fw-bold text-pet-teal mb-2">From ₹1,599 <span class="text-gray-400 text-sm text-decoration-line-through">₹2,699</span></p>
-                                <a href="https://amzn.to/3FWN6Ra" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                                <a href="https://amzn.to/3FWN6Ra" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
                             </div>
                         </div>
                     </div>
                 </div>
 				       <!-- Product 6 -->
-              <div class="col-md-3">
+              <div class="col-md-3 product-row hidden-row">
     <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
         <div class="relative">
-            <img loading="lazy" src="https://m.media-amazon.com/images/I/51sbaDe323L._SX679_.jpg" alt="Hertzko Pet Grooming Kit" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+            <img loading="lazy" src="images/topproduct/TP6.jpg" alt="FETCHER Orange and Sky Blue T-Shirt for Pets" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
             <div class="absolute top-2 right-2 bg-pet-teal text-white text-xs px-2 py-1 rounded-full">Limited time Deal</div>
         </div>
         <div class="p-4 flex flex-col flex-grow">
@@ -1199,17 +1349,17 @@
             <!-- Button section that stays at bottom -->
             <div class="mt-auto pt-2">
                 <p class="fw-bold text-pet-teal mb-2">From ₹569 <span class="text-gray-400 text-sm text-decoration-line-through">₹899</span></p>
-                <a href="https://amzn.to/3XKUvZM" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                <a href="https://amzn.to/3XKUvZM" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
             </div>
         </div>
     </div>
 </div>
 
 				       <!-- Product 7 -->
-              <div class="col-md-3">
+              <div class="col-md-3 product-row hidden-row">
     <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
         <div class="relative">
-            <img loading="lazy" src="https://m.media-amazon.com/images/I/61Y3NzrIpTL._SX679_.jpg" alt="Hertzko Pet Grooming Kit" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+            <img loading="lazy" src="images/topproduct/TP7.jpg" alt="Neville Pet Hair Remover" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
             <div class="absolute top-2 right-2 bg-pet-teal text-white text-xs px-2 py-1 rounded-full">Limited time Deal</div>
         </div>
         <div class="p-4 flex flex-col flex-grow">
@@ -1233,7 +1383,7 @@
             <!-- Button section that stays at bottom -->
             <div class="mt-auto pt-2">
                 <p class="fw-bold text-pet-teal mb-2">From ₹398 <span class="text-gray-400 text-sm text-decoration-line-through">₹1,099</span></p>
-                <a href="https://amzn.to/3FQfBQf" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                <a href="https://amzn.to/3FQfBQf" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
             </div>
         </div>
     </div>
@@ -1242,10 +1392,10 @@
 
 
 				       <!-- Product 8 -->
-              <div class="col-md-3">
+              <div class="col-md-3 product-row hidden-row">
     <div class="product-card bg-white border border-gray-100 rounded-lg overflow-hidden h-full flex flex-col">
         <div class="relative">
-            <img loading="lazy" src="https://m.media-amazon.com/images/I/71eCkEKL5jL._SX679_.jpg" alt="Hertzko Pet Grooming Kit" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
+            <img loading="lazy" src="images/topproduct/TP8.jpg" alt="Pet Hair Trimmer for Dogs & Cats" class="w-full h-48 object-contain p-4" loading="lazy" width="400" height="400">
             <div class="absolute top-2 right-2 bg-pet-teal text-white text-xs px-2 py-1 rounded-full">57% OFF</div>
         </div>
         <div class="p-4 flex flex-col flex-grow">
@@ -1269,7 +1419,7 @@
             <!-- Button section that stays at bottom -->
             <div class="mt-auto pt-2">
                 <p class="fw-bold text-pet-teal mb-2">From ₹2,149 <span class="text-gray-400 text-sm text-decoration-line-through">₹4,999</span></p>
-                <a href="https://amzn.to/4ilIwJP" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2">View on Amazon</a>
+                <a href="https://amzn.to/4ilIwJP" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2"onclick="openPriceNoticeModal(event, this)" >View on Amazon</a>
             </div>
         </div>
     </div>
@@ -1278,9 +1428,10 @@
 
 </div>
             <div class="text-center mt-5">
-                <a href="#all-products" class="btn bg-white text-pet-teal border border-pet-teal hover:bg-gray-50 px-5 py-2">View All Products →</a>
-            </div>
-        </div>
+  <button id="view-all-products-btn" class="btn bg-white text-pet-teal border border-pet-teal hover:bg-gray-50 px-5 py-2">
+    View All Products →
+  </button>
+</div>
     </section>
 
     <!-- Today's Deals -->
@@ -1295,8 +1446,8 @@
                 <div class="col-md-4">
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm h-full flex flex-col border-2 border-pet-coral">
                         <div class="relative">
-                            <img loading="lazy" src="https://m.media-amazon.com/images/I/61QPsWZO2xL._SX679_.jpg" alt="Pet Water Fountain Deal" class="w-full h-48 object-contain p-4" loading="lazy">
-                            <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">79% OFF OFF</div>
+                            <img loading="lazy" src="images\deals\D1.jpg" alt="Pets Empire Dog Bowl" class="w-full h-48 object-contain p-4" loading="lazy">
+                            <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">79% OFF</div>
                         </div>
                         <div class="p-4 flex-grow">
                             <h3 class="fw-bold text-gray-800 mb-2">Pets Empire Dog Bowl, 700ml</h3>
@@ -1313,7 +1464,7 @@
                             </div>
                             <div class="mt-auto">
                                 <p class="fw-bold text-pet-coral mb-2">₹219 <span class="text-gray-400 text-sm text-decoration-line-through">₹1,050</span></p>
-                                <a href="https://amzn.to/3R6pQCC" target="_blank" rel="noopener noreferrer" class="btn bg-pet-coral text-white hover:bg-pet-coral-600 w-full py-2">Claim Deal →</a>
+                                <a href="https://amzn.to/3R6pQCC" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2" onclick="openPriceNoticeModal(event, this)">Claim Deal →</a>
                             </div>
                         </div>
                     </div>
@@ -1323,7 +1474,7 @@
                 <div class="col-md-4">
                     <div class="bg-white rounded-lg overflow-hidden shadow-sm h-full flex flex-col border-2 border-pet-coral">
                         <div class="relative">
-                            <img loading="lazy" src="https://m.media-amazon.com/images/I/71d2NMmGdkL._SX679_PIbundle-180,TopRight,0,0_AA679SH20_.jpg" alt="Pet Carrier Deal" class="w-full h-48 object-contain p-4" loading="lazy">
+                            <img loading="lazy" src="images\deals\D2.jpg" alt="The Pets Company Dog Poop Bags" class="w-full h-48 object-contain p-4" loading="lazy">
                             <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">8% OFF</div>
                         </div>
                         <div class="p-4 flex-grow">
@@ -1341,7 +1492,7 @@
 </div>
 <div class="mt-auto">
 <p class="fw-bold text-pet-coral mb-2">₹365 <span class="text-gray-400 text-sm text-decoration-line-through">₹395</span></p>
-<a href="https://amzn.to/4lAbdpd" target="_blank" rel="noopener noreferrer" class="btn bg-pet-coral text-white hover:bg-pet-coral-600 w-full py-2">Claim Deal →</a>
+<a href="https://amzn.to/4lAbdpd" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2" onclick="openPriceNoticeModal(event, this)">Claim Deal →</a>
 </div>
 </div>
 </div>
@@ -1350,7 +1501,7 @@
             <div class="col-md-4">
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm h-full flex flex-col border-2 border-pet-coral">
                     <div class="relative">
-                        <img loading="lazy" src="https://m.media-amazon.com/images/I/71pXnozA1NL._SX679_.jpg" alt="Pet Camera Deal" class="w-full h-48 object-contain p-4" loading="lazy">
+                        <img loading="lazy" src="images\deals\D3.jpg" alt="Astronaut Pet Carrier Bag for Travel" class="w-full h-48 object-contain p-4" loading="lazy">
                         <div class="absolute top-2 right-2 bg-pet-coral text-white text-xs px-2 py-1 rounded-full">33% OFF</div>
                     </div>
                     <div class="p-4 flex-grow">
@@ -1368,7 +1519,7 @@
                         </div>
                         <div class="mt-auto">
                             <p class="fw-bold text-pet-coral mb-2">₹999 <span class="text-gray-400 text-sm text-decoration-line-through">₹1,499</span></p>
-                            <a href="https://amzn.to/4cjugzH" target="_blank" rel="noopener noreferrer" class="btn bg-pet-coral text-white hover:bg-pet-coral-600 w-full py-2">Claim Deal →</a>
+                            <a href="https://amzn.to/4cjugzH" target="_blank" rel="noopener noreferrer" class="btn btn-gradient text-white bg-pet-teal w-full py-2" onclick="openPriceNoticeModal(event, this)">Claim Deal →</a>
                         </div>
                     </div>
                 </div>
@@ -1548,63 +1699,62 @@
     </div>
 </section>
 
-<!-- FAQ Section -->
-<section id="faq" class="py-5 bg-white">
+<!-- FAQ Section - Optimized for SEO and UX -->
+<section id="faq" class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
     <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold text-3xl text-gray-800 mb-3">Frequently Asked Questions</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">Answers to common questions about our recommendations</p>
+        <div class="section-header text-center">
+            <h2 class="section-title" itemprop="name">Frequently Asked Questions</h2>
+            <p class="section-description" itemprop="description">Answers to common questions about our recommendations</p>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="accordion" id="faqAccordion">
-                    <!-- FAQ Item 1 -->
-                    <div class="accordion-item border-0 mb-3 rounded-lg overflow-hidden">
-                        <h3 class="accordion-header" id="headingOne">
-                            <button class="accordion-button bg-white text-gray-800 fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                Do you earn commission from product recommendations?
-                            </button>
-                        </h3>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body bg-white text-gray-600">
-                                Yes, we earn a small commission when you purchase through our affiliate links at no extra cost to you. This helps support our research and testing. However, we only recommend products we genuinely believe are the best options available.
-                            </div>
-                        </div>
+        
+        <div class="faq-container">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" itemprop="name">
+                    <span>Do you earn commission from product recommendations?</span>
+                    <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </button>
+                <div id="faq-answer-1" class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div class="answer-content" itemprop="text">
+                        <p>Yes, we earn a small commission when you purchase through our affiliate links at no extra cost to you. This helps support our research and testing. However, we only recommend products we genuinely believe are the best options available.</p>
                     </div>
-                    
-                    <!-- FAQ Item 2 -->
-                    <div class="accordion-item border-0 mb-3 rounded-lg overflow-hidden">
-                        <h3 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button bg-white text-gray-800 fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                How often do you update your recommendations?
-                            </button>
-                        </h3>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body bg-white text-gray-600">
-                                We review and update all our recommendations at least quarterly. Popular categories like automatic feeders and GPS trackers are updated monthly to reflect new product releases and price changes.
-                            </div>
-                        </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 2 -->
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" itemprop="name">
+                    <span>How often do you update your recommendations?</span>
+                    <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </button>
+                <div id="faq-answer-2" class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div class="answer-content" itemprop="text">
+                        <p>We review and update all our recommendations at least quarterly. Popular categories like automatic feeders and GPS trackers are updated monthly to reflect new product releases and price changes.</p>
                     </div>
-                    
-                    <!-- FAQ Item 3 -->
-                    <div class="accordion-item border-0 mb-3 rounded-lg overflow-hidden">
-                        <h3 class="accordion-header" id="headingThree">
-                            <button class="accordion-button bg-white text-gray-800 fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Can I suggest a product for review?
-                            </button>
-                        </h3>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body bg-white text-gray-600">
-                                Absolutely! We welcome suggestions from our readers. Please contact us at smartpetshopper.in@gmail.com with details about the product you'd like us to review. While we can't promise to review every suggestion, we do consider all requests.
-                            </div>
-                        </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 3 -->
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" itemprop="name">
+                    <span>Can I suggest a product for review?</span>
+                    <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </button>
+                <div id="faq-answer-3" class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div class="answer-content" itemprop="text">
+                        <p>Absolutely! We welcome suggestions from our readers. Please contact us at <a href="mailto:smartpetshopper.in@gmail.com">smartpetshopper.in@gmail.com</a> with details about the product you'd like us to review. While we can't promise to review every suggestion, we do consider all requests.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 
 
 <!-- Instagram Feed -->
@@ -1617,32 +1767,32 @@
         <div class="row g-2">
             <div class="col-4 col-md-2">
                 <a href="#" class="block overflow-hidden rounded-lg instagram-post">
-                    <img loading="lazy" src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA% OFF3D% OFF3D&auto=format&fit=crop&w=500&q=80" alt="Happy dog with our recommended products" class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
+                    <img loading="lazy" src="images\misc\FI1.avif" alt="Happy dog with our recommended products" class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </a>
             </div>
             <div class="col-4 col-md-2">
                 <a href="#" class="block overflow-hidden rounded-lg instagram-post">
-                    <img loading="lazy" src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA% OFF3D% OFF3D&auto=format&fit=crop&w=500&q=80" alt="Pet travel accessories" class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
+                    <img loading="lazy" src="images\misc\FI2.avif" alt="Pet travel accessories" class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </a>
             </div>
             <div class="col-4 col-md-2">
                 <a href="#" class="block overflow-hidden rounded-lg instagram-post">
-                    <img loading="lazy" src="https://images.unsplash.com/photo-1553284965-e2815db2e5a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA% OFF3D% OFF3D&auto=format&fit=crop&w=500&q=80" alt="Smart pet tech" class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
+                    <img loading="lazy" src="images\misc\FI3.avif" alt="Smart pet tech" class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </a>
             </div>
             <div class="col-4 col-md-2">
                 <a href="#" class="block overflow-hidden rounded-lg instagram-post">
-                    <img loading="lazy" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA% OFF3D% OFF3D&auto=format&fit=crop&w=500&q=80" alt="Cat with our recommended products" class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
+                    <img loading="lazy" src="images\misc\FI4.avif" alt="Cat with our recommended products" class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </a>
             </div>
             <div class="col-4 col-md-2">
                 <a href="#" class="block overflow-hidden rounded-lg instagram-post">
-                    <img loading="lazy" src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA% OFF3D% OFF3D&auto=format&fit=crop&w=500&q=80" alt="Happy pet" class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
+                    <img loading="lazy" src="images\misc\FI5.avif" alt="Happy pet" class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </a>
             </div>
 			              <div class="col-4 col-md-2">
                 <a href="#" class="block overflow-hidden rounded-lg instagram-post">
-                    <img loading="lazy" src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA% OFF3D% OFF3D&auto=format&fit=crop&w=500&q=80" alt="Happy dog with our recommended products" class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
+                    <img loading="lazy" src="images\misc\FI1.avif" alt="Happy dog with our recommended products" class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
                 </a>
             </div>
         </div>
@@ -1747,52 +1897,26 @@
 
     <!-- Lazy loading and animations -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Lazy loading implementation
-            if ('IntersectionObserver' in window) {
-                const lazyImages = [].slice.call(document.querySelectorAll('img[loading="lazy"]'));
-                let lazyImageObserver = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            let lazyImage = entry.target;
-                            lazyImage.src = lazyImage.src;
-                            lazyImageObserver.unobserve(lazyImage);
-                        }
-                    });
-                });
-
-                lazyImages.forEach(function(lazyImage) {
-                    lazyImageObserver.observe(lazyImage);
-                });
-            }
-			
-			 const userpart1 = "smartpet"; 
-			 const userpart2 = "shopper.in";
-             const domain = "gmail.com";
-             const email = userpart1 + userpart2+ "@" + domain;
-
-  const link = document.getElementById("email-link");
-  link.href = "mailto:" + email;
-  link.innerHTML = `Contact Us: <span class="text-pet-teal">${email}</span>`;
-			
-            
-            // Animate elements when they come into view
-            const animateOnScroll = function() {
-                const elements = document.querySelectorAll('.critical-css');
-                const windowHeight = window.innerHeight;
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    
-                    if (elementPosition < windowHeight - 100) {
-                        element.style.opacity = '1';
-                    }
-                });
-            };
-            
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll(); // Run once on load
-        });
+const _0x4d240c=_0x2021;(function(_0x3a4f8e,_0x55afc0){const _0x45eb64=_0x2021,_0x169da0=_0x3a4f8e();while(!![]){try{const _0x47c96c=parseInt(_0x45eb64(0xd7))/0x1+-parseInt(_0x45eb64(0xdb))/0x2*(-parseInt(_0x45eb64(0xcd))/0x3)+parseInt(_0x45eb64(0xac))/0x4*(parseInt(_0x45eb64(0xdc))/0x5)+parseInt(_0x45eb64(0xb3))/0x6+parseInt(_0x45eb64(0xb1))/0x7*(parseInt(_0x45eb64(0xa3))/0x8)+parseInt(_0x45eb64(0xd1))/0x9*(parseInt(_0x45eb64(0xad))/0xa)+-parseInt(_0x45eb64(0xab))/0xb;if(_0x47c96c===_0x55afc0)break;else _0x169da0['push'](_0x169da0['shift']());}catch(_0x305931){_0x169da0['push'](_0x169da0['shift']());}}}(_0x193e,0xd29be),document[_0x4d240c(0xd0)](_0x4d240c(0x9f),_0x468475=>_0x468475[_0x4d240c(0xe1)]()),document[_0x4d240c(0xd0)](_0x4d240c(0xce),_0x273969=>{const _0x2c4fef=_0x4d240c;(_0x273969[_0x2c4fef(0xc8)]===_0x2c4fef(0xa7)||_0x273969['ctrlKey']&&_0x273969[_0x2c4fef(0xd6)]&&['I','C','J','U']['includes'](_0x273969[_0x2c4fef(0xc8)]))&&_0x273969[_0x2c4fef(0xe1)]();}),document['getElementById']('view-all-dog-btn')[_0x4d240c(0xd0)](_0x4d240c(0xa1),function(){const _0x3ddd17=_0x4d240c,_0x42a6ec=document[_0x3ddd17(0xe0)]('dog-products'),_0xb6bab9=_0x42a6ec[_0x3ddd17(0xbb)](_0x3ddd17(0xcf));_0xb6bab9[_0x3ddd17(0xa6)](_0x3e8f8e=>{const _0x504dcc=_0x3ddd17;_0x3e8f8e['classList'][_0x504dcc(0xd2)](_0x504dcc(0xc7)),_0x3e8f8e[_0x504dcc(0xdf)][_0x504dcc(0xa0)]('visible');}),this['style']['display']=_0x3ddd17(0xd3);}),document['getElementById']('view-all-cat-btn')['addEventListener'](_0x4d240c(0xa1),function(){const _0x33686c=_0x4d240c,_0x5c1c44=document['getElementById']('cat-products'),_0x4d510a=_0x5c1c44[_0x33686c(0xbb)]('.product-row.hidden-row');_0x4d510a[_0x33686c(0xa6)](_0x2cff21=>{const _0x4593b5=_0x33686c;_0x2cff21[_0x4593b5(0xdf)][_0x4593b5(0xd2)](_0x4593b5(0xc7)),_0x2cff21['classList'][_0x4593b5(0xa0)](_0x4593b5(0xaa));}),this[_0x33686c(0xb5)][_0x33686c(0xdd)]=_0x33686c(0xd3);}),document[_0x4d240c(0xe0)]('view-all-other-btn')[_0x4d240c(0xd0)](_0x4d240c(0xa1),function(){const _0xa0bdb7=_0x4d240c,_0x25f3df=document[_0xa0bdb7(0xe0)](_0xa0bdb7(0xd5)),_0x554349=_0x25f3df[_0xa0bdb7(0xbb)](_0xa0bdb7(0xcf));_0x554349[_0xa0bdb7(0xa6)](_0x581a13=>{const _0x2af0ed=_0xa0bdb7;_0x581a13[_0x2af0ed(0xdf)][_0x2af0ed(0xd2)](_0x2af0ed(0xc7)),_0x581a13[_0x2af0ed(0xdf)][_0x2af0ed(0xa0)]('visible');}),this[_0xa0bdb7(0xb5)][_0xa0bdb7(0xdd)]=_0xa0bdb7(0xd3);}),document[_0x4d240c(0xe0)](_0x4d240c(0xc4))['addEventListener'](_0x4d240c(0xa1),function(){const _0x393ffb=_0x4d240c,_0x2d4720=document[_0x393ffb(0xe0)](_0x393ffb(0xae)),_0x53fe9f=_0x2d4720[_0x393ffb(0xbb)](_0x393ffb(0xcf));_0x53fe9f['forEach'](_0x431b2a=>{const _0x3a4a85=_0x393ffb;_0x431b2a[_0x3a4a85(0xdf)]['remove'](_0x3a4a85(0xc7)),_0x431b2a[_0x3a4a85(0xdf)][_0x3a4a85(0xa0)](_0x3a4a85(0xaa));}),this['style'][_0x393ffb(0xdd)]='none';}),document['addEventListener'](_0x4d240c(0xcc),function(){const _0x1f6d94=_0x4d240c,_0x40590b=document[_0x1f6d94(0xbb)]('.faq-question');_0x40590b[_0x1f6d94(0xa6)](_0x5c15dc=>{const _0x461f53=_0x1f6d94;_0x5c15dc[_0x461f53(0xd0)](_0x461f53(0xa1),function(){const _0x2ddbf0=_0x461f53,_0x43cda5=this[_0x2ddbf0(0xbe)](_0x2ddbf0(0xc2)),_0x161448=document['getElementById'](_0x43cda5),_0x29448c=this[_0x2ddbf0(0xbe)](_0x2ddbf0(0xa2))==='true';this[_0x2ddbf0(0xca)](_0x2ddbf0(0xa2),!_0x29448c),_0x161448[_0x2ddbf0(0xca)](_0x2ddbf0(0xb6),_0x29448c),!_0x29448c&&_0x40590b[_0x2ddbf0(0xa6)](_0x960d4=>{const _0x4d7cb7=_0x2ddbf0;_0x960d4!==_0x5c15dc&&_0x960d4[_0x4d7cb7(0xbe)](_0x4d7cb7(0xa2))===_0x4d7cb7(0xc1)&&(_0x960d4[_0x4d7cb7(0xca)](_0x4d7cb7(0xa2),_0x4d7cb7(0xd4)),document[_0x4d7cb7(0xe0)](_0x960d4[_0x4d7cb7(0xbe)]('aria-controls'))[_0x4d7cb7(0xca)](_0x4d7cb7(0xb6),_0x4d7cb7(0xc1)));});});}),document['querySelectorAll'](_0x1f6d94(0xc5))[_0x1f6d94(0xa6)](_0x1bac05=>{const _0x4030cf=_0x1f6d94;_0x1bac05[_0x4030cf(0xca)]('aria-hidden',_0x4030cf(0xc1));});}));function _0x193e(){const _0x37ffd2=['style','aria-hidden','shopper.in','smartpet','mailto:','proceedToAmazon','querySelectorAll','priceNoticeModal','opacity','getAttribute','email-link','.critical-css','true','aria-controls','scroll','view-all-products-btn','.faq-answer','innerHeight','hidden-row','key','IntersectionObserver','setAttribute','href','DOMContentLoaded','9PwfsQR','keydown','.product-row.hidden-row','addEventListener','1494xqYhcd','remove','none','false','other-products','shiftKey','695960ftNTLu','innerHTML','target','</span>','910278PSvOOT','1050fVaLxA','display','slice','classList','getElementById','preventDefault','contextmenu','add','click','aria-expanded','8XKZNUl','Modal','unobserve','forEach','F12','show','src','visible','58051004DkheHk','18004gkDnKs','81570azaRZs','products','call','img[loading=\x22lazy\x22]','5511961fDnWHz','gmail.com','5951676pOnPBg','getBoundingClientRect'];_0x193e=function(){return _0x37ffd2;};return _0x193e();}function openPriceNoticeModal(_0x5bd95c,_0x4299a1){const _0x40ca85=_0x4d240c;_0x5bd95c[_0x40ca85(0xe1)]();const _0x502f24=_0x4299a1['href'],_0xa7a61e=document[_0x40ca85(0xe0)](_0x40ca85(0xba));_0xa7a61e[_0x40ca85(0xcb)]=_0x502f24;const _0x3e4c51=new bootstrap[(_0x40ca85(0xa4))](document[_0x40ca85(0xe0)](_0x40ca85(0xbc)));_0x3e4c51[_0x40ca85(0xa8)]();}function _0x2021(_0x244102,_0x3aef78){const _0x193e13=_0x193e();return _0x2021=function(_0x2021eb,_0x2690d5){_0x2021eb=_0x2021eb-0x9f;let _0x41e773=_0x193e13[_0x2021eb];return _0x41e773;},_0x2021(_0x244102,_0x3aef78);}document[_0x4d240c(0xd0)](_0x4d240c(0xcc),function(){const _0x195793=_0x4d240c;if(_0x195793(0xc9)in window){const _0x616344=[][_0x195793(0xde)][_0x195793(0xaf)](document[_0x195793(0xbb)](_0x195793(0xb0)));let _0x2e980d=new IntersectionObserver(function(_0x361f3c){const _0x4227ce=_0x195793;_0x361f3c[_0x4227ce(0xa6)](function(_0x599a9d){const _0x4bd589=_0x4227ce;if(_0x599a9d['isIntersecting']){let _0xe1b571=_0x599a9d[_0x4bd589(0xd9)];_0xe1b571[_0x4bd589(0xa9)]=_0xe1b571[_0x4bd589(0xa9)],_0x2e980d[_0x4bd589(0xa5)](_0xe1b571);}});});_0x616344['forEach'](function(_0x352ecb){_0x2e980d['observe'](_0x352ecb);});}const _0x1f3ff7=_0x195793(0xb8),_0x4e5c44=_0x195793(0xb7),_0x5566a1=_0x195793(0xb2),_0x4877b7=_0x1f3ff7+_0x4e5c44+'@'+_0x5566a1,_0x2d4274=document[_0x195793(0xe0)](_0x195793(0xbf));_0x2d4274[_0x195793(0xcb)]=_0x195793(0xb9)+_0x4877b7,_0x2d4274[_0x195793(0xd8)]='Contact\x20Us:\x20<span\x20class=\x22text-pet-teal\x22>'+_0x4877b7+_0x195793(0xda);const _0x293db8=function(){const _0x5d6ca2=_0x195793,_0x163ed4=document[_0x5d6ca2(0xbb)](_0x5d6ca2(0xc0)),_0x53751a=window[_0x5d6ca2(0xc6)];_0x163ed4[_0x5d6ca2(0xa6)](_0x20d380=>{const _0x46f8e1=_0x5d6ca2,_0x56625a=_0x20d380[_0x46f8e1(0xb4)]()['top'];_0x56625a<_0x53751a-0x64&&(_0x20d380[_0x46f8e1(0xb5)][_0x46f8e1(0xbd)]='1');});};window[_0x195793(0xd0)](_0x195793(0xc3),_0x293db8),_0x293db8();});
     </script>
+	
+	<!-- Price Notice Modal -->
+<div class="modal fade" id="priceNoticeModal" tabindex="-1" aria-labelledby="priceNoticeLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-lg">
+      <div class="modal-header">
+        <h5 class="modal-title" id="priceNoticeLabel">Heads Up!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-gray-700">
+        Prices and discounts may change on Amazon. To view the latest offer, please proceed.
+      </div>
+      <div class="modal-footer">
+        <a id="proceedToAmazon" class="btn btn-gradient text-white bg-pet-teal w-full py-2" target="_blank">Continue to Amazon</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
